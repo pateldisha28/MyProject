@@ -26,8 +26,6 @@ public class LoginTest extends BaseHRMClass {
 	{
 		initiate();
 		Thread.sleep(3000);
-		
-		System.out.println("screenshot done");
 		log=new PomLogin();//initiating the object of pomlogin class
 	
 	}
@@ -50,19 +48,22 @@ public class LoginTest extends BaseHRMClass {
 	@Test(priority=2, dataProvider="details")
 	public void Login(String name,String password) throws InterruptedException
 	{
-		Thread.sleep(6000);
+		Thread.sleep(2000);
 		log.typeusername(name);
 		log.typepassword(password);
 		screenshots("Login");
+		Thread.sleep(2000);
 		log.clickbtn();
+		Thread.sleep(3000);
+
 	}
 	
 
-//	 @AfterMethod
-//	 public void close()
-//	 {
-//		 driver.close();
-//	 }
+	 @AfterMethod
+	 public void close()
+	 {
+		 driver.close();
+	 }
 	
 	
 }
